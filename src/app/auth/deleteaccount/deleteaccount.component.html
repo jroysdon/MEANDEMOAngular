@@ -1,0 +1,16 @@
+<mat-card>
+  <mat-spinner *ngIf="isLoading"></mat-spinner>
+  <form (submit)="onDeleteAccount($event)" [formGroup]="deleteAccountForm" *ngIf="!isLoading">
+      <mat-card-title>Delete your Account</mat-card-title>
+      <mat-card-subtitle>You will need to enter your password to delete your account. </mat-card-subtitle>
+      <mat-form-field  appearance="fill">
+          <input type="password" formControlName="password"  matInput placeholder="Current Password" required autocomplete="current-password">
+          <mat-error *ngIf="deleteAccountForm.invalid">Please enter a valid password.</mat-error>
+      </mat-form-field>
+      <P>
+        <mat-slide-toggle formControlName="deleteContent" min="0" max="1" step="1" value="1">Delete all content you posted</mat-slide-toggle>
+      </P>
+      <button mat-raised-button color="accent" type="submit" name='deleteAccount' *ngIf="!isLoading" >Delete Account</button>
+  </form>
+</mat-card>
+<p>Sorry to see you go, but your account has been deleted.</p>

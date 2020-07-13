@@ -1,0 +1,28 @@
+<mat-card>
+  <mat-spinner *ngIf="isLoading"></mat-spinner>
+  <!-- <form [formGroup]="form" (submit)="onSaveProfile()" *ngIf="!isLoading"> -->
+  <form [formGroup]="form" *ngIf="!isLoading">
+    <mat-form-field>
+      <input matInput type="text" formControlName="email" placeholder="email"  >
+    </mat-form-field>
+    <mat-form-field>
+      <input matInput type="text" formControlName="firstname" placeholder="First Name"  >
+    </mat-form-field>
+    <mat-form-field>
+      <input matInput type="text" formControlName="lastname" placeholder="Last Name"  >
+    </mat-form-field>
+    <mat-form-field>
+      <input matInput type="text" formControlName="dob" placeholder="Date of Birth"  >
+    </mat-form-field>
+    <mat-form-field>
+      <input matInput type="text" formControlName="lastLogin" placeholder="Last Login"  >
+    </mat-form-field>
+    <mat-form-field>
+      <input matInput type="text" formControlName="signupDate" placeholder="Member Since"  >
+    </mat-form-field>
+
+    <button mat-raised-button color="accent" type="button" (click)="resetPassword($event)" name='reset'>Reset Password</button>&nbsp;&nbsp;
+    
+    <button mat-raised-button color="warning" type="button" (click)="deleteAccount()" name='delete'>Delete Profile</button>
+  </form>
+</mat-card>

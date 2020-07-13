@@ -1,0 +1,24 @@
+<mat-card>
+  <mat-spinner *ngIf="isLoading"></mat-spinner>
+  <form [formGroup]="resetPWForm"  *ngIf="!isLoading">
+      <mat-card-header>Pasword Reset</mat-card-header><br>
+      <mat-card-subtitle>Please set a new password to access this system.</mat-card-subtitle> 
+      <mat-card-subtitle><strong>Username: </strong> {{validatedEmail}}</mat-card-subtitle>
+      <mat-card-content>
+      <mat-form-field appearance="fill">
+          <!-- <input type="password" name="password" ngModel matInput placeholder="Password" autocomplete=new-password #passwordInput="ngModel"  required> -->
+          <input type="password" formControlName="passwordInput" matInput placeholder="Password" autocomplete=new-password required>
+          <mat-error *ngIf="resetPWForm.invalid">Please enter a valid password.</mat-error>
+        </mat-form-field>
+        <mat-form-field appearance="fill">
+          <!-- <input type="password" name="confirmpassword" ngModel matInput placeholder="Confirm Password" autocomplete=new-password #passwordConfirmInput="ngModel"  required> -->
+          <input type="password" formControlName="passwordConfirmInput" ngModel matInput placeholder="Confirm Password" autocomplete=new-password required>
+          <mat-error *ngIf="resetPWForm.invalid">Your passwords do not match.</mat-error>
+        </mat-form-field>
+        </mat-card-content>
+        <mat-card-actions>
+          <button mat-raised-button color="accent" type="submit" name='resetPW' (click)="onResetPassword($event)" [disabled]="!resetPWForm.valid" >Reset Password</button>
+          <button mat-raised-button color="warn" type="button" name='cancel' (click)="onCancel()" >Cancel</button>
+        </mat-card-actions>
+  </form>
+</mat-card>

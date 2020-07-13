@@ -1,0 +1,46 @@
+<mat-card>
+  <mat-card-header>Sign Up</mat-card-header><br>
+  <mat-card-subtitle>To access this system, you must have a valid email. We ask for your name and date of birth for IDentification purposes.</mat-card-subtitle> 
+  <mat-spinner *ngIf="isLoading"></mat-spinner>
+  <form (submit)="onSignup(signupForm)" #signupForm="ngForm" *ngIf="!isLoading">
+    <mat-form-field appearance="fill">
+      <input matInput name="email" ngModel type="email" autocomplete=username placeholder="E-Mail" #emailInput="ngModel" required email>
+      <mat-error *ngIf="emailInput.invalid">Please enter a valid email.</mat-error>
+    </mat-form-field>
+    <mat-form-field appearance="fill">
+      <input type="password" name="password" ngModel matInput placeholder="Password" autocomplete=new-password #passwordInput="ngModel"  required>
+      <mat-error *ngIf="passwordInput.invalid">Please enter a valid password.</mat-error>
+    </mat-form-field>
+    <mat-form-field appearance="fill">
+      <input type="password" name="confirmpassword" ngModel matInput placeholder="Confirm Password" autocomplete=new-password #passwordConfirmInput="ngModel"  required>
+      <mat-error *ngIf="passwordConfirmInput.invalid">Your passwords do not match.</mat-error>
+   
+      <!-- <div class="state">
+        Do passwords match? 
+        <strong>{{!signupForm.hasError('passwordsDoNotMatch')}}</strong>
+      </div> -->
+   
+    </mat-form-field>
+    <mat-form-field appearance="fill">
+      <input matInput name="firstname" ngModel type="text" placeholder="First Name" #firstname="ngModel" required >
+      <mat-error *ngIf="firstname.invalid">Required</mat-error>
+    </mat-form-field>
+    <mat-form-field appearance="fill">
+      <input matInput name="lastname" ngModel type="text" placeholder="Last Name" #lastname="ngModel" required >
+      <mat-error *ngIf="lastname.invalid">Required</mat-error>
+    </mat-form-field>
+    <mat-form-field >
+      <mat-label>Date of Birth</mat-label>
+      <input matInput name="dob" ngModel [matDatepicker]="dob" >
+      <mat-datepicker-toggle matPrefix [for]="dob"></mat-datepicker-toggle>
+      <mat-datepicker #dob></mat-datepicker>
+    </mat-form-field>
+   
+
+
+
+
+
+    <button mat-raised-button color="accent" type="submit" *ngIf="!isLoading">Signup</button>
+  </form>
+</mat-card>
