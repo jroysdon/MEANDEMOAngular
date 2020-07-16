@@ -1,7 +1,9 @@
 # MEAN DEMO - ANGULAR
-## A demonstration application - JRoysdon ()
+## A demonstration application - JRoysdon (July 2020)
 
 I wrote this through a course in **MEAN** Development. This is the front end (Angular) code. The Back End (Mongo/Express/Node) portion can be found here: https://github.com/jroysdon/MEANDEMOAPI
+
+The live Demo can be found here: http://meandemoforjim.s3-website-us-east-1.amazonaws.com
 
 This code is to show I can work in the **MEAN** full stack: 
 
