@@ -1,15 +1,15 @@
-import { Injectable } from "@angular/core";
-import { HttpClient } from "@angular/common/http";
-import { Subject } from "rxjs";
-import { map } from "rxjs/operators";
-import { Router } from "@angular/router";
+import { Injectable } from '@angular/core';
+import { HttpClient } from '@angular/common/http';
+import { Subject } from 'rxjs';
+import { map } from 'rxjs/operators';
+import { Router } from '@angular/router';
 
-import { environment } from "../../environments/environment";
-import { Post } from "../models/post.model";
+import { environment } from '../../environments/environment';
+import { Post } from '../models/post.model';
 
-const BACKEND_URL = environment.apiUrl + "/posts/";
+const BACKEND_URL = environment.apiUrl + '/posts/';
 
-@Injectable({ providedIn: "root" })
+@Injectable({ providedIn: 'root' })
 export class PostsService {
   private posts: Post[] = [];
   private postsUpdated = new Subject<{ posts: Post[]; postCount: number }>();
@@ -31,7 +31,10 @@ export class PostsService {
                 content: post.content,
                 id: post._id,
                 imagePath: post.imagePath,
-                creator: post.creator
+                // createDate: Date.now(),
+                 editDate: post.editDate,
+                creator: post.creator.firstname,
+                creatorID: post.creator._id
               };
             }),
             maxPosts: postData.maxPosts
@@ -57,46 +60,51 @@ export class PostsService {
       title: string;
       content: string;
       imagePath: string;
+      editDate: Date;
       creator: string;
+      creatorID: string
     }>(BACKEND_URL + id);
   }
 
   addPost(title: string, content: string, image: File) {
     const postData = new FormData();
-    postData.append("title", title);
-    postData.append("content", content);
-    postData.append("image", image, title);
+    postData.append('title', title);
+    postData.append('content', content);
+    postData.append('image', image, title);
     this.http
       .post<{ message: string; post: Post }>(
         BACKEND_URL,
         postData
       )
       .subscribe(responseData => {
-        this.router.navigate(["/"]);
+        this.router.navigate(['/']);
       });
   }
 
   updatePost(id: string, title: string, content: string, image: File | string) {
     let postData: Post | FormData;
-    if (typeof image === "object") {
+    if (typeof image === 'object') {
       postData = new FormData();
-      postData.append("id", id);
-      postData.append("title", title);
-      postData.append("content", content);
-      postData.append("image", image, title);
+      postData.append('id', id);
+      postData.append('title', title);
+      postData.append('content', content);
+      postData.append('image', image, title);
     } else {
       postData = {
         id: id,
         title: title,
         content: content,
         imagePath: image,
-        creator: null
+        // createDate: Date.now(),
+        editDate: new Date(),
+        creator: null,
+        creatorID: id
       };
     }
     this.http
       .put(BACKEND_URL + id, postData)
       .subscribe(response => {
-        this.router.navigate(["/"]);
+        this.router.navigate(['/']);
       });
   }
 

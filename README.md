@@ -22,9 +22,9 @@ I have added the following capabilities:
 - [x] Request a new password (again, sending a link)
 - [x] Ability to delete completely the user's profile
 - [x] The option to delete all the user's content when deleting their profile. 
+- [x] Add the user's name and Date to the post (this was brought up when I and a few people reviewing it)
 
 Still to do:
-- [ ] Add the user's name and Date to the post (this was brought up when I and a few people reviewing it)
 - [ ]  Apple App, written in Swift calling the existing API
 - [ ]  Android App, written in JAVA calling the existing API
 

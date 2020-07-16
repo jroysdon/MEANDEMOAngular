@@ -3,5 +3,8 @@ export interface Post {
   title: string;
   content: string;
   imagePath: string;
+  // createDate: Date;
+ editDate: Date;
   creator: string;
+  creatorID: string;
 }
