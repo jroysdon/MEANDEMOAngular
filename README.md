@@ -8,11 +8,11 @@ The live Demo can be found here: http://meandemoforjim.s3-website-us-east-1.amaz
 This code is to show I can work in the **MEAN** full stack: 
 
 * Mongo (and other NoSQL databases), though I also have worked in Relational DBs)/n
-* Express (to se up micro services)
+* Express (to serve up micro services)
 * Angular (the Front End)
 * NodeJS (the back end)
 
-I am often asked for examples of my work. The issue is that much of what I've done is behind corporate firewalls and is proprietary and I've used several methodologies and technologies *I've programmed in over 20 languages in my career, depending on the needs of my clients, working in both waterfall and agile methodologies.*  
+I am often asked for examples of my work. The issue is that much of what I've done is behind corporate firewalls and is proprietary and I've used several methodologies and technologies. *I've programmed in over 20 languages in my career, depending on the needs of my clients, working in both waterfall and agile methodologies.*  
 
 The course work was a simple POST and USERbase.
 
