@@ -1,4 +1,10 @@
 <mat-spinner *ngIf="isLoading"></mat-spinner>
+<span *ngIf="wizardIsAuthenticated==false"><h2>MEAN Demo Site</h2>
+  This is a functional site demonstrating <strong>MEAN Development</strong>.<br>
+  You can register for an account, verify your account, reset your password, Post / Edit/ Delete, and delete your profile. <br>
+  This is the front end (Angular) source code can be found on <a target='_blank' href="https://github.com/jroysdon/MEANDEMOAngular">Github.</a><br>
+  The Back End (Mongo/Express/Node) source code can be found on <a target='_blank'  href="https://github.com/jroysdon/MEANDEMOAPI">Github.</a><br>
+  <i>If you are logged in, this paragraph will not display.</i><br><br></span>
 <mat-accordion multi="true" *ngIf="posts.length > 0 && !isLoading">
   <mat-expansion-panel *ngFor="let post of posts">
     <mat-expansion-panel-header>
